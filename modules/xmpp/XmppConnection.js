@@ -65,7 +65,7 @@ export default class XmppConnection extends Listenable {
         this._usesWebsocket = serviceUrl.startsWith('ws:') || serviceUrl.startsWith('wss:');
 
         // The default maxRetries is 5, which is too long.
-        this._stropheConn.maxRetries = 3;
+        this._stropheConn.maxRetries = 5;
 
         this._rawInputTracker = new LastSuccessTracker();
         this._rawInputTracker.startTracking(this, this._stropheConn);

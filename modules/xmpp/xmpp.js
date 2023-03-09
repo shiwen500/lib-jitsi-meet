@@ -605,9 +605,9 @@ export default class XMPP extends Listenable {
         let roomjid = `${roomName}@${options.customDomain
             ? options.customDomain : this.options.hosts.muc.toLowerCase()}/`;
 
-        const mucNickname = onCreateResource
+        const mucNickname = options.userId || (onCreateResource
             ? onCreateResource(this.connection.jid, this.authenticatedUser)
-            : RandomUtil.randomHexString(8).toLowerCase();
+            : RandomUtil.randomHexString(8).toLowerCase());
 
         logger.info(`JID ${this.connection.jid} using MUC nickname ${mucNickname}`);
         roomjid += mucNickname;
